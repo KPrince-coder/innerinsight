@@ -3,6 +3,7 @@ package dev.android.innerinsight.screens
 import android.content.Context
 import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.EaseIn
 import androidx.compose.animation.core.EaseInBounce
 import androidx.compose.animation.core.EaseInElastic
 import androidx.compose.animation.core.tween
@@ -90,9 +91,9 @@ fun ContentDetailScreen(day: Int, navigateBackwards: () -> Unit) {
                     launch {
                         scrollState.animateScrollTo(value = 0,
                             animationSpec = tween(
-                                durationMillis = 1000,
+                                durationMillis = 500,
                                 delayMillis = 200,
-                                easing = EaseInElastic
+                                easing = EaseIn
                             )
                         )
                     }

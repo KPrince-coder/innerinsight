@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">InnerInsight</string>
+    <string name="day">Day</string>
+    <string name="quote">Quote</string>
+    <string name="mindfulness_tip">Mindfulness Tip</string>
+    <string name="gratitude_prompt">Gratitude Prompt</string>
+    <string name="self_compassion_reminder">Self Compassion Reminder</string>
+    <string name="mindful_eating_tip">Mindful Eating Tip</string>
+    <string name="affirmation">Affirmation</string>
+    <string name="reflection_prompt">Reflection Prompt</string>
+    <string name="nature_connection">Nature Connection</string>
+    <string name="exit_app_title">Exit App</string>
+    <string name="exit_app_text">Do you really want to close the application?</string>
+    <string name="text_button_confirm_text">Yes</string>
+    <string name="text_button_dismiss_text">No</string>
+</resources>

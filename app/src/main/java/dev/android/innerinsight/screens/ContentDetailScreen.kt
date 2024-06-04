@@ -78,7 +78,7 @@ fun ContentDetailScreen(day: Int, navigateBackwards: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(bottom = 8.dp)
+            .padding(bottom = 12.dp)
     )
 
     AnimatedVisibility(visible) {

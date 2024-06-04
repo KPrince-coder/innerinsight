@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
@@ -127,6 +128,7 @@ fun HomeScreen(navController: NavHostController) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HomeScreenContent(
     context: Context,
@@ -134,6 +136,8 @@ private fun HomeScreenContent(
     navController: NavHostController,
     lazyListState: LazyListState
 ) {
+    // to monitor items scroll
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     var isCardClicked by remember { mutableStateOf(false) }
     // card background color change on clicked
     val color by animateColorAsState(
@@ -159,7 +163,8 @@ private fun HomeScreenContent(
                     .background(MaterialTheme.colorScheme.primary)
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 contentPadding = paddingValues,
-                state = lazyListState
+                state = lazyListState,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 items(dailyContent, key = { it.day }) { dailyItem ->
                     ContentItemCard(
@@ -197,6 +202,8 @@ private fun HomeScreenContent(
         },
         modifier = Modifier
             .fillMaxSize()
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
+        scrollBehavior = scrollBehavior
     )
 }
 
@@ -204,14 +211,11 @@ private fun HomeScreenContent(
 @Composable
 private fun HomeScreenContentArrangement(
     content: @Composable (PaddingValues) -> Unit,
+    scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier
 ) {
-    // to monitor items scroll
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-
     Scaffold(
-        modifier = modifier
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier,
         topBar = {
             HomeScreenTopAppBar(
                 scrollBehavior,

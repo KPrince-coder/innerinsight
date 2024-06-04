@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.EaseIn
-import androidx.compose.animation.core.EaseInBounce
-import androidx.compose.animation.core.EaseInElastic
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
@@ -31,7 +29,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -89,7 +86,8 @@ fun ContentDetailScreen(day: Int, navigateBackwards: () -> Unit) {
             onClick = {
                 with(coroutineScope) {
                     launch {
-                        scrollState.animateScrollTo(value = 0,
+                        scrollState.animateScrollTo(
+                            value = 0,
                             animationSpec = tween(
                                 durationMillis = 500,
                                 delayMillis = 200,
@@ -249,8 +247,10 @@ private fun BackStackNavigation(navigateBackwards: () -> Unit, modifier: Modifie
                 tint = MaterialTheme.colorScheme.onPrimaryContainer,
                 modifier = Modifier
                     .size(26.dp)
-                    .background(color = MaterialTheme.colorScheme.primaryContainer,
-                        shape = CircleShape)
+                    .background(
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                        shape = CircleShape
+                    )
                     .shadow(elevation = 40.dp, shape = RoundedCornerShape(40))
             )
         }

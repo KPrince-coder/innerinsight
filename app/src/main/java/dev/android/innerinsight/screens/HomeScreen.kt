@@ -47,6 +47,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusEvent
@@ -422,8 +423,10 @@ private fun CloseAlertDialog(
             Text(
                 text = stringResource(id = R.string.exit_app_text),
                 style = TextStyle(
-                    fontFamily = Poppins
-                )
+                    fontFamily = Poppins,
+                    fontSize = 16.sp
+                ),
+                modifier = Modifier.alpha(0.9f)
             )
         },
         dismissButton = {

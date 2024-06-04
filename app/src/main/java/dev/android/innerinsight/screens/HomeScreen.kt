@@ -94,7 +94,6 @@ fun HomeScreen(navController: NavHostController) {
     val listState = rememberLazyListState()
     val visible by remember { derivedStateOf { listState.firstVisibleItemIndex > 0 } }
 
-
     BackHandler {
         showDialog = true
     }
@@ -153,8 +152,6 @@ private fun HomeScreenContent(
     )
     val interactionSource = remember { MutableInteractionSource() }
 
-
-
     HomeScreenContentArrangement(
         content = { paddingValues ->
             LazyColumn(
@@ -188,8 +185,6 @@ private fun HomeScreenContent(
                                             dailyItem.day - 1
                                         }"
                                     )
-
-                                    isCardClicked = false
                                 }
                             )
                             .focusable()

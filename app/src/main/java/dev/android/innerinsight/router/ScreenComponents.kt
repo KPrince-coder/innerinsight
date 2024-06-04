@@ -2,6 +2,7 @@ package dev.android.innerinsight.router
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.EaseIn
+import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -66,7 +67,19 @@ fun ScreenManager() {
             Screen.ContentDetailScreen.route + "/{key}",
             arguments = listOf(navArgument("key") {
                 type = NavType.IntType
-            })
+            }),
+            enterTransition = {
+                fadeIn(
+                    animationSpec = tween(durationMillis = 600, easing = EaseIn)
+                )
+            },
+            exitTransition = {
+                fadeOut(
+                    animationSpec = tween(
+                        durationMillis = 600, easing = EaseOut
+                    )
+                )
+            }
         ) { navBackStack ->
             val day = navBackStack.arguments?.getInt("key")!!
             ContentDetailScreen(day = day) {

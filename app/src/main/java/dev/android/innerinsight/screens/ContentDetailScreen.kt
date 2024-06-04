@@ -1,7 +1,6 @@
 package dev.android.innerinsight.screens
 
 import android.content.Context
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.EaseIn
 import androidx.compose.animation.core.tween
@@ -70,7 +69,7 @@ fun ContentDetailScreen(day: Int, navigateBackwards: () -> Unit) {
     val scrollState = rememberScrollState()
     val coroutineScope = rememberCoroutineScope()
     val visible by remember { derivedStateOf { scrollState.value > 388 } }
-    Log.d("scrollState", "ContentDetailScreen: ${scrollState.value} ${scrollState.maxValue} ")
+    // Log.d("scrollState", "ContentDetailScreen: ${scrollState.value} ${scrollState.maxValue} ")
     ContentDetailScreenContent(
         day = day,
         navigateBackwards = navigateBackwards,
@@ -469,9 +468,7 @@ private fun Title(title: String, modifier: Modifier = Modifier) {
             fontSize = 24.sp,
             color = MaterialTheme.colorScheme.secondary,
             fontWeight = FontWeight.ExtraBold,
-            // textDecoration = TextDecoration.Underline
-            // TODO: Add underline decoration
-        ),
+            ),
         modifier = modifier
     )
 }
